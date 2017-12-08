@@ -9,14 +9,20 @@
 <body>
   
   <h1>Temperature Converter</h1>
-  
-  <input id="input" type="number" name="temp">
-  <input id="Cel" type="radio" name="unit"> Celcius
-  <input id="Fah" type="radio" name="unit"> Fahrenheit
-  <button id="clear">clear</button>
-  <button id="converter">Convert</button>
+  <div>
+    <h4>Insert Temp Here: </h4>
+    <input id="input" type="number" name="temp">
+  </div>
+  <div>
+    <input id="cBtn" type="radio" name="unit"> Celcius
+    <input id="fBtn" type="radio" name="unit"> Fahrenheit
+  </div>
+    <button id="clear">clear</button>
+    <button id="converter">Convert</button>
+  </div>
 
-  <div id="output"></div>
+  <div id="output">
+  </div>
 
 
   <script src="converter.js"></script>

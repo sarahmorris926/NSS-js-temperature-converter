@@ -1,32 +1,60 @@
 
 let input = document.getElementById("input");
-let celcius = document.getElementById("cel");
-let fahrenheit = document.getElementById("fah");
+let celcius = document.getElementById("cBtn");
+let fahrenheit = document.getElementById("fBtn");
 let clear = document.getElementById("clear");
 let converter = document.getElementById("converter");
 let output = document.getElementById("output");
 
 
 
-function toCelcius () {
-  // celcius = (fahrenheit value - 32) * .5556
-  let celciusValue = (input.value - 32) * .5556;
-}
-
-function toFahrenheit () {
-  // fahrenheit = celcius value * 1.8 + 32
-  let fahrenheitValue = 
-}
-
-
-// Get a reference to the button element in the DOM
-let button = document.getElementById("converter");
-
+// Assign a function to be executed when the button is clicked
+converter.addEventListener("click", determineConverter);
 
 // Determine which conversion should happen based on which radio button is selected
 function determineConverter (clickEvent) {
-  console.log("event", clickEvent);
+  if (document.getElementById("cBtn").checked) {
+    toCelcius(input.value);
+  } else if (document.getElementById("fBtn").checked) {
+    toFahrenheit(input.value);
+  }
+};
+
+
+
+
+function toCelcius (input) {
+  let celciusValue = ((input.value - 32) * .5556).toFixed(1);
+  if (celciusValue > 32) {
+    output.style.color = "red";
+  } else if (celciusValue < 0) {
+    output.style.color = "blue";
+  } else {
+    output.style.color = "black";
+  }
+  output.innerHTML = celciusValue;
 }
 
-// Assign a function to be executed when the button is clicked
-button.addEventListener("click", determineConverter);
+function toFahrenheit (input) {
+  let fahrenheitValue = ((input.value * 9/5) + 32).toFixed(1);
+  if (fahrenheitValue > 90) {
+    output.style.color = "red";
+  } else if (fahrenheitValue < 32) {
+    output.style.color = "blue";
+  } else {
+    output.style.color = "black";
+  }
+  output.innerHTML = fahrenheitValue;
+}
+
+
+
+
+// Clear button
+let clearBtn = document.getElementById("clear");
+clearBtn.addEventListener("click", function() {
+  input.value = "";
+  output.value = "";
+  cBtn.checked = false;
+  fBtn.checked = false;
+})
