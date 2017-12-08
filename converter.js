@@ -1,7 +1,7 @@
 
 let input = document.getElementById("input");
-let celcius = document.getElementById("celcius");
-let fahrenheit = document.getElementById("fahrenheit");
+let celcius = document.getElementById("cel");
+let fahrenheit = document.getElementById("fah");
 let clear = document.getElementById("clear");
 let converter = document.getElementById("converter");
 let output = document.getElementById("output");
@@ -9,11 +9,13 @@ let output = document.getElementById("output");
 
 
 function toCelcius () {
-
+  // celcius = (fahrenheit value - 32) * .5556
+  let celciusValue = (input.value - 32) * .5556;
 }
 
 function toFahrenheit () {
-
+  // fahrenheit = celcius value * 1.8 + 32
+  let fahrenheitValue = 
 }
 
 
